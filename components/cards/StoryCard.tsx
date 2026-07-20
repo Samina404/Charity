@@ -3,12 +3,20 @@ import Link from 'next/link';
 import type { Story } from '@/types';
 import Badge from '@/components/ui/Badge';
 import { formatDate, truncateText } from '@/lib/utils';
+import { Locale } from '@/lib/dictionary';
 
 interface StoryCardProps {
   story: Story;
+  lang: Locale;
 }
 
-export default function StoryCard({ story }: StoryCardProps) {
+export default function StoryCard({ story, lang }: StoryCardProps) {
+  const linkLabel = lang === 'ar' 
+    ? 'قراءة القصة كاملة ←' 
+    : lang === 'bn' 
+      ? 'সম্পূর্ণ গল্প পড়ুন ←' 
+      : 'Read Full Story →';
+
   return (
     <article className="story-card">
       <div className="story-card__image-wrap">
@@ -28,8 +36,8 @@ export default function StoryCard({ story }: StoryCardProps) {
         <h3 className="story-card__title">{story.title}</h3>
         <p className="story-card__excerpt">{truncateText(story.excerpt, 120)}</p>
         <p className="story-card__child">- {story.childName}</p>
-        <Link href={`/stories/${story.slug}`} className="story-card__link">
-          Read Full Story {'->'}
+        <Link href={`/${lang}/stories/${story.slug}`} className="story-card__link">
+          {linkLabel}
         </Link>
       </div>
     </article>

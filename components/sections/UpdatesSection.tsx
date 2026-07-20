@@ -1,19 +1,28 @@
 import Container from '@/components/layout/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
 import UpdateCard from '@/components/cards/UpdateCard';
-import { updates } from '@/data/updates';
+import { getUpdates } from '@/data/updates';
+import { getDictionary, Locale } from '@/lib/dictionary';
 
-export default function UpdatesSection() {
+interface UpdatesSectionProps {
+  lang: Locale;
+}
+
+export default async function UpdatesSection({ lang }: UpdatesSectionProps) {
+  const dict = await getDictionary(lang);
+  const t = dict.home.updates;
+  const list = getUpdates(lang);
+
   return (
     <section className="updates section">
       <Container>
         <SectionHeading
-          title="Latest News & Updates"
-          subtitle="Stay informed about our programs, events, and the children whose lives you are changing."
+          title={t.title}
+          subtitle={t.subtitle}
         />
 
         <div className="updates__grid">
-          {updates.map((update) => (
+          {list.map((update) => (
             <UpdateCard key={update.id} update={update} />
           ))}
         </div>

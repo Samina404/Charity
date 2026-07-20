@@ -1,0 +1,253 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "our-work": "What We Do",
+    "stories": "Stories",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "donate": "Donate Now",
+    "logo_title": "Hope Foundation",
+    "close_menu": "Close menu",
+    "open_menu": "Open menu"
+  },
+  "footer": {
+    "tagline": "Building brighter futures for children around the world.",
+    "quick_links": "About Us",
+    "support": "Support Us",
+    "legal": "Legal",
+    "copyright": "© 2026 Hope Foundation. All rights reserved.",
+    "links": {
+      "about": "About Us",
+      "our-work": "What We Do",
+      "stories": "Success Stories",
+      "donate": "Donate Now",
+      "sponsor": "Sponsor a Child",
+      "volunteer": "Volunteer",
+      "faq": "FAQ",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    }
+  },
+  "contact_info": {
+    "phone_support": "Phone Support",
+    "email_inquiries": "Email Inquiries",
+    "office_location": "Office Location",
+    "office_hours": "Office Hours"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Changing Lives Since 2005",
+      "title_normal": "Every Child Deserves a ",
+      "title_accent": "Bright Future",
+      "subtitle": "Hope Foundation provides education, nutrition, and care to children in need across 45+ communities worldwide. Together, we can give every child the chance they deserve.",
+      "cta_primary": "Donate Now",
+      "cta_secondary": "Read Stories",
+      "trust_secure": "Secure & tax deductible",
+      "trust_rating": "4-star Charity Navigator rating",
+      "trust_certified": "501(c)(3) certified"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "subtitle": "We believe every child, regardless of circumstance, deserves access to quality education, proper nutrition, and a safe place to grow.",
+      "years_of_impact": "Years of Impact",
+      "button": "Learn About Us",
+      "values": {
+        "compassion_title": "Compassion",
+        "compassion_desc": "We see every child as unique and deserving of love.",
+        "empowerment_title": "Empowerment",
+        "empowerment_desc": "We equip children with skills for lifelong success.",
+        "community_title": "Community",
+        "community_desc": "We build lasting partnerships in every region we serve."
+      }
+    },
+    "stats": {
+      "title": "Our Impact in Numbers",
+      "subtitle": "Every donation, every sponsor, every volunteer creates measurable change in children's lives.",
+      "items": {
+        "children": "Children Supported",
+        "funds": "Funds Raised",
+        "communities": "Communities Reached",
+        "volunteers": "Volunteers Worldwide"
+      }
+    },
+    "stories": {
+      "title": "Stories of Hope",
+      "subtitle": "Behind every statistic is a real child with a real story. These are the faces of change.",
+      "cta": "Read All Stories →"
+    },
+    "donate": {
+      "eyebrow": "Make a Difference Today",
+      "title": "Your Gift Changes a Child's Life Forever",
+      "subtitle": "Just $25 a month provides school supplies and daily meals for one child. Every contribution, no matter the size, creates lasting impact.",
+      "cta_primary": "Donate Now",
+      "cta_secondary": "Read Stories",
+      "trust": "Secure · Tax deductible · Cancel anytime"
+    },
+    "updates": {
+      "title": "Latest News & Updates",
+      "subtitle": "Stay informed about our programs, events, and the children whose lives you are changing."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Have questions? We have answers. Reach out anytime for more.",
+      "cta": "View All FAQs →"
+    }
+  },
+  "about": {
+    "label": "About Us",
+    "title": "We Build Brighter Futures\nWith Children & Communities",
+    "sub": "A child-focused charity rooted in partnership.",
+    "lead": "Hope Foundation works alongside children, their families, and local partners to create lasting change in the places where support matters most.",
+    "cta_explore": "Explore Our Work",
+    "cta_contact": "Get in Touch",
+    "mission_title": "We create lasting, positive change for and with children",
+    "mission_p1": "Hope Foundation is an independent children's charity dedicated to transforming the lives of children in the world's most vulnerable communities.",
+    "mission_p2": "We work alongside children, their families, and local partners - discovering new solutions to help every child survive, learn, and be protected. What started as a small initiative supporting 50 children in rural Kenya has grown into a network reaching 5,000+ children across 45 communities in 12 countries.",
+    "mission_highlight": "We take a holistic approach: education, nutrition, safe shelter, emergency relief, and community resilience - because a child who is hungry or afraid cannot focus on learning.",
+    "principles_eyebrow": "Our Principles",
+    "principles_title": "What We Stand For",
+    "principles_desc": "Four principles guide everything we do - from program design to how we manage every donation.",
+    "principles_items": [
+      {
+        "title": "Child-Centred",
+        "desc": "Every decision starts with one question - is this best for the child?"
+      },
+      {
+        "title": "Community-Led",
+        "desc": "We co-design every program alongside local families and leaders."
+      },
+      {
+        "title": "Transparent",
+        "desc": "Annual impact reports and independent financial audits - no exceptions."
+      },
+      {
+        "title": "Sustainable",
+        "desc": "We build lasting systems so change continues long after we leave."
+      }
+    ],
+    "history_eyebrow": "Our History",
+    "history_title": "Our Journey",
+    "history_desc": "Twenty years of growing alongside the children and communities we serve.",
+    "history_items": [
+      { "year": "2005", "event": "Founded with a mission to support 50 children in rural Kenya." },
+      { "year": "2009", "event": "Expanded to 3 countries. Launched our first nutrition program, serving 400 meals a day." },
+      { "year": "2013", "event": "Opened our 10th learning centre. Reached 1,000 children for the first time." },
+      { "year": "2017", "event": "Launched the Emergency Relief Fund. Responded to our first humanitarian crisis." },
+      { "year": "2021", "event": "3,000+ children supported. Operating in 12 countries across 3 continents." },
+      { "year": "2025", "event": "5,000+ children in 45 communities. 85% of every dollar goes directly to programs." }
+    ],
+    "people_eyebrow": "The People",
+    "people_title": "Our Leadership",
+    "people_desc": "Dedicated professionals driving our mission forward every day.",
+    "people_items": [
+      {
+        "name": "Dr. Sarah Mitchell",
+        "role": "Executive Director",
+        "bio": "Leading Hope Foundation since 2012 with 20+ years in nonprofit leadership."
+      },
+      {
+        "name": "James Okonkwo",
+        "role": "Programs Director",
+        "bio": "Oversees field operations across 12 countries and 45 communities."
+      },
+      {
+        "name": "Maria Santos",
+        "role": "Development Lead",
+        "bio": "Drives fundraising strategy and major donor partnerships."
+      },
+      {
+        "name": "David Chen",
+        "role": "Finance Director",
+        "bio": "Ensures transparent fund allocation - 85% going directly to programs."
+      }
+    ],
+    "ready": "Ready to make a difference?",
+    "ready_desc": "Whether you donate, volunteer, or share our story - you become part of the change."
+  },
+  "contact": {
+    "label": "Get In Touch",
+    "title": "We're Here\nTo Help & Listen",
+    "sub": "Have questions about sponsorship, volunteering, or donation statements? Reach out through our contact desk or drop a direct message.",
+    "form_title": "Send A Message",
+    "form_name": "Full Name *",
+    "form_email": "Email Address *",
+    "form_subject": "Subject",
+    "form_message": "Message *",
+    "form_submit": "Send Message",
+    "success_title": "Thank You!",
+    "success_desc": "Your message has been sent successfully. We will get back to you within 24 business hours.",
+    "success_btn": "Send Another Message"
+  },
+  "donate_page": {
+    "label": "Support Our Mission",
+    "title": "Make a Donation",
+    "sub": "Your generosity transforms lives. Choose a giving level or enter a custom amount below to begin.",
+    "impact_title": "Choose Your Impact",
+    "impact_sub": "Every tier makes a measurable difference in a child's life.",
+    "form_title": "Quick Donate",
+    "form_sub": "Prefer to donate directly? Use the form below.",
+    "form": {
+      "tier": "Donation Amount",
+      "custom": "Custom Amount ($)",
+      "frequency": "Frequency",
+      "one_time": "One-Time",
+      "monthly": "Monthly",
+      "info_title": "Donor Details",
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number (Optional)",
+      "billing": "Billing Zip/Postal Code",
+      "submit": "Complete Donation of",
+      "processing": "Processing...",
+      "secure": "This is a secure 256-bit SSL encrypted donation."
+    }
+  },
+  "faq_page": {
+    "label": "FAQ Help Desk",
+    "title": "Frequently Asked\nClearly Answered",
+    "sub": "Everything you need to know about donating, sponsoring, volunteering, and how our foundation ensures 100% transparency.",
+    "need_help": "Need Immediate Help?",
+    "support_desk": "Our support desk is here for you",
+    "audit_link": "Audit & Finance Reports",
+    "btn_touch": "Get in Touch",
+    "eyebrow": "Common Questions",
+    "title_main": "Frequently Asked Inquiries",
+    "sub_main": "Browse our compiled list of questions regarding tax receipts, sponsorship cycles, field work verification, and fund allocation.",
+    "sub_main_alt": "If you still can't find what you're looking for, contact our support team and we will reply directly within 24 hours.",
+    "btn_contact": "Contact Support Desk"
+  },
+  "our_work": {
+    "label": "Our Programs",
+    "title": "What We Do to Support\nChildren Globally",
+    "sub": "We believe in sustainable, community-led programs that target the root causes of poverty.",
+    "cta": "Learn More"
+  },
+  "stories_page": {
+    "label": "Impact Stories",
+    "title": "Voices of Hope & Change",
+    "sub": "Real stories from the children, families, and communities whose lives have been transformed through your support.",
+    "read_more": "Read Full Story",
+    "back": "← Back to Stories"
+  },
+  "meta": {
+    "home_title": "Hope Foundation | Building Brighter Futures for Children",
+    "home_desc": "Hope Foundation provides education, nutrition, and care to children in need across 45+ communities worldwide. Donate or sponsor a child today.",
+    "about_title": "About Us | Hope Foundation",
+    "about_desc": "Learn about Hope Foundation's mission, values, and the team dedicated to building brighter futures for children worldwide.",
+    "our_work_title": "What We Do | Hope Foundation",
+    "our_work_desc": "Explore our programs in education, nutrition, shelter, emergency relief, and community resilience that empower children and families.",
+    "stories_title": "Success Stories | Hope Foundation",
+    "stories_desc": "Read the inspiring stories of children and communities whose lives have been transformed by Hope Foundation's programs.",
+    "faq_title": "FAQ | Hope Foundation",
+    "faq_desc": "Frequently asked questions about Hope Foundation — donations, sponsorships, volunteering, transparency, and more.",
+    "contact_title": "Contact Us | Hope Foundation",
+    "contact_desc": "Get in touch with Hope Foundation. Reach out with questions about donations, sponsorships, or volunteering.",
+    "donate_title": "Donate | Hope Foundation",
+    "donate_desc": "Make a tax-deductible donation to Hope Foundation. Your gift provides education, nutrition, and healthcare to children in need.",
+    "privacy_title": "Privacy Policy | Hope Foundation",
+    "privacy_desc": "Read the privacy policy of Hope Foundation and understand how we collect, use, and protect your personal information.",
+    "terms_title": "Terms & Conditions | Hope Foundation",
+    "terms_desc": "Read the terms and conditions of using the Hope Foundation website and participating in our programs."
+  }
+}

@@ -4,14 +4,22 @@ import Container from '@/components/layout/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { Heart, Sprout, Handshake } from 'lucide-react';
 import { IMAGES } from '../../lib/images';
+import { getDictionary, Locale } from '@/lib/dictionary';
 
-const values = [
-  { icon: Heart, title: 'Compassion', desc: 'We see every child as unique and deserving of love.' },
-  { icon: Sprout, title: 'Empowerment', desc: 'We equip children with skills for lifelong success.' },
-  { icon: Handshake, title: 'Community', desc: 'We build lasting partnerships in every region we serve.' },
-];
+interface MissionSectionProps {
+  lang: Locale;
+}
 
-export default function MissionSection() {
+export default async function MissionSection({ lang }: MissionSectionProps) {
+  const dict = await getDictionary(lang);
+  const t = dict.home.mission;
+
+  const values = [
+    { icon: Heart, title: t.values.compassion_title, desc: t.values.compassion_desc },
+    { icon: Sprout, title: t.values.empowerment_title, desc: t.values.empowerment_desc },
+    { icon: Handshake, title: t.values.community_title, desc: t.values.community_desc },
+  ];
+
   return (
     <section className="mission section">
       <Container className="mission__inner">
@@ -19,7 +27,7 @@ export default function MissionSection() {
         <div className="mission__image-wrap">
           <Image
             src={IMAGES.missionBg}
-            alt="Children in a classroom, engaged and smiling"
+            alt={lang === 'ar' ? 'أطفال في فصل دراسي مبتسمين ومتفاعلين' : lang === 'bn' ? 'শিশুরা একটি শ্রেণীকক্ষে হাসিখুশি এবং মনোযোগী' : 'Children in a classroom, engaged and smiling'}
             width={600}
             height={500}
             className="mission__image"
@@ -27,17 +35,19 @@ export default function MissionSection() {
             quality={85}
           />
           <div className="mission__image-badge">
-            <span className="mission__image-badge-num">20+</span>
-            <span className="mission__image-badge-text">Years of Impact</span>
+            <span className="mission__image-badge-num">
+              {lang === 'ar' ? '٢٠+' : lang === 'bn' ? '২০+' : '20+'}
+            </span>
+            <span className="mission__image-badge-text">{t.years_of_impact}</span>
           </div>
         </div>
 
         {/* Text column */}
         <div className="mission__content">
           <SectionHeading
-            title="Our Mission"
-            subtitle="We believe every child, regardless of circumstance, deserves access to quality education, proper nutrition, and a safe place to grow."
-            align="left"
+            title={t.title}
+            subtitle={t.subtitle}
+            align={lang === 'ar' ? 'right' : 'left'}
           />
 
           <div className="mission__values">
@@ -57,8 +67,8 @@ export default function MissionSection() {
             })}
           </div>
 
-          <Link href="/about" className="btn btn--primary">
-            Learn About Us
+          <Link href={`/${lang}/about`} className="btn btn--primary">
+            {t.button}
           </Link>
         </div>
       </Container>

@@ -1,18 +1,33 @@
 import Link from 'next/link';
 import Container from '@/components/layout/Container';
 import FAQAccordion from '@/components/common/FAQAccordion';
-import { faqs } from '@/data/faq';
+import { getFAQs } from '@/data/faq';
 import { generatePageMetadata } from '@/lib/metadata';
 import { HelpCircle, Mail, Phone, FileText, ArrowRight } from 'lucide-react';
+import { getDictionary, Locale } from '@/lib/dictionary';
 
-export const metadata = generatePageMetadata({
-  title: 'FAQ',
-  description:
-    'Frequently asked questions about Hope Foundation — donations, sponsorships, volunteering, transparency, and more.',
-  path: '/faq',
-});
+interface PageProps {
+  params: Promise<{ lang: string }>;
+}
 
-export default function FAQPage() {
+export async function generateMetadata({ params }: PageProps) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+  return generatePageMetadata({
+    title: dict.meta.faq_title,
+    description: dict.meta.faq_desc,
+    path: `/${lang}/faq`,
+  });
+}
+
+export default async function FAQPage({ params }: PageProps) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang as Locale);
+  const t = dict.faq_page;
+  const list = getFAQs(lang as Locale);
+
+  const isRtl = lang === 'ar';
+
   return (
     <>
       {/* ── Hero Section ─────────────────────────────────── */}
@@ -21,14 +36,12 @@ export default function FAQPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="program-row">
             {/* Left Column */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div className="work-hero__label">FAQ Help Desk</div>
-              <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.08, letterSpacing: '-0.02em' }}>
-                Frequently Asked,
-                <br />
-                Clearly Answered
+              <div className="work-hero__label">{t.label}</div>
+              <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.8rem)', fontWeight: 900, lineHeight: 1.08, letterSpacing: '-0.02em', whiteSpace: 'pre-line' }}>
+                {t.title}
               </h1>
               <p style={{ fontSize: '1.1rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>
-                Everything you need to know about donating, sponsoring, volunteering, and how our foundation ensures 100% transparency.
+                {t.sub}
               </p>
             </div>
 
@@ -50,8 +63,8 @@ export default function FAQPage() {
                   <HelpCircle size={20} strokeWidth={2} />
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: '800', margin: 0 }}>Need Immediate Help?</h3>
-                  <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: 0 }}>Our support desk is here for you</p>
+                  <h3 style={{ fontSize: '1.1rem', fontWeight: '800', margin: 0 }}>{t.need_help}</h3>
+                  <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', margin: 0 }}>{t.support_desk}</p>
                 </div>
               </div>
 
@@ -61,7 +74,7 @@ export default function FAQPage() {
                     <Mail size={18} className="text-[var(--text-muted)]" />
                     <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>support@hopefoundation.org</span>
                   </div>
-                  <ArrowRight size={16} className="text-[var(--gold-600)]" />
+                  <ArrowRight size={16} className={`text-[var(--gold-600)] ${isRtl ? 'rotate-180' : ''}`} />
                 </a>
 
                 <a href="tel:+18005550199" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.85rem 1rem', borderRadius: 'var(--radius-md)', background: 'var(--neutral-100)', border: '1px solid var(--neutral-200)', transition: 'background 0.2s' }} className="support-link-item">
@@ -69,20 +82,20 @@ export default function FAQPage() {
                     <Phone size={18} className="text-[var(--text-muted)]" />
                     <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>+1 (800) 555-0199</span>
                   </div>
-                  <ArrowRight size={16} className="text-[var(--gold-600)]" />
+                  <ArrowRight size={16} className={`text-[var(--gold-600)] ${isRtl ? 'rotate-180' : ''}`} />
                 </a>
 
-                <Link href="/donate" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.85rem 1rem', borderRadius: 'var(--radius-md)', background: 'var(--neutral-100)', border: '1px solid var(--neutral-200)', transition: 'background 0.2s' }} className="support-link-item">
+                <Link href={`/${lang}/donate`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.85rem 1rem', borderRadius: 'var(--radius-md)', background: 'var(--neutral-100)', border: '1px solid var(--neutral-200)', transition: 'background 0.2s' }} className="support-link-item">
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <FileText size={18} className="text-[var(--text-muted)]" />
-                    <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>Audit &amp; Finance Reports</span>
+                    <span style={{ fontSize: '0.9rem', fontWeight: '600' }}>{t.audit_link}</span>
                   </div>
-                  <ArrowRight size={16} className="text-[var(--gold-600)]" />
+                  <ArrowRight size={16} className={`text-[var(--gold-600)] ${isRtl ? 'rotate-180' : ''}`} />
                 </Link>
               </div>
 
-              <Link href="/contact" className="btn btn--primary btn--lg" style={{ width: '100%' }}>
-                Get in Touch
+              <Link href={`/${lang}/contact`} className="btn btn--primary btn--lg" style={{ width: '100%' }}>
+                {t.btn_touch}
               </Link>
             </div>
           </div>
@@ -96,27 +109,27 @@ export default function FAQPage() {
             {/* Left Narrative */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <span style={{ fontSize: '0.72rem', textTransform: 'uppercase', letterSpacing: '0.12em', fontWeight: '800', color: 'var(--gold-700)', background: 'var(--gold-100)', padding: '0.35rem 0.95rem', borderRadius: '999px', width: 'fit-content' }}>
-                Common Questions
+                {t.eyebrow}
               </span>
               <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)', fontWeight: '800', lineHeight: '1.15' }}>
-                Frequently Asked Inquiries
+                {t.title_main}
               </h2>
               <p style={{ fontSize: '1.05rem', color: 'var(--text-muted)', lineHeight: '1.7' }}>
-                Browse our compiled list of questions regarding tax receipts, sponsorship cycles, field work verification, and fund allocation.
+                {t.sub_main}
               </p>
               <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', lineHeight: '1.7' }}>
-                If you still can&apos;t find what you&apos;re looking for, contact our support team and we will reply directly within 24 hours.
+                {t.sub_main_alt}
               </p>
               <div style={{ marginTop: '0.5rem' }}>
-                <Link href="/contact" className="btn btn--outline">
-                  Contact Support Desk
+                <Link href={`/${lang}/contact`} className="btn btn--outline">
+                  {t.btn_contact}
                 </Link>
               </div>
             </div>
 
             {/* Right Accordion */}
             <div>
-              <FAQAccordion faqs={faqs} />
+              <FAQAccordion faqs={list} />
             </div>
           </div>
         </Container>

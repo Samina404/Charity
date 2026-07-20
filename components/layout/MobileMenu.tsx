@@ -7,9 +7,19 @@ import Link from 'next/link';
 import { X } from 'lucide-react';
 import NavLink from '@/components/common/NavLink';
 import Logo from '@/components/common/Logo';
-import { NAV_ITEMS } from '@/lib/constants';
+import LanguageSwitcher from '@/components/common/LanguageSwitcher';
+import { NavItem } from '@/types';
+import { Locale } from '@/lib/dictionary';
 
-export default function MobileMenu() {
+interface MobileMenuProps {
+  navItems: NavItem[];
+  donateLabel: string;
+  closeLabel: string;
+  openLabel: string;
+  lang: Locale;
+}
+
+export default function MobileMenu({ navItems, donateLabel, closeLabel, openLabel, lang }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
@@ -82,7 +92,7 @@ export default function MobileMenu() {
         className={`mobile-menu__toggle ${isOpen ? 'mobile-menu__toggle--open' : ''}`}
         aria-expanded={isOpen}
         aria-controls="mobile-menu-panel"
-        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-label={isOpen ? closeLabel : openLabel}
         onClick={() => setIsOpen((o) => !o)}
       >
         <span className="mobile-menu__bar" />
@@ -105,29 +115,36 @@ export default function MobileMenu() {
                 aria-label="Mobile navigation"
               >
                 <div className="mobile-menu__header">
-                  <Logo />
-                  <button type="button" className="mobile-menu__close" onClick={close} aria-label="Close menu">
+                  <Link href={`/${lang}`} onClick={close}>
+                    <Logo />
+                  </Link>
+                  <button type="button" className="mobile-menu__close" onClick={close} aria-label={closeLabel}>
                     <X size={22} />
                   </button>
                 </div>
                 <ul className="mobile-menu__list">
-                  {NAV_ITEMS.map((item) => (
+                  {navItems.map((item) => (
                     <li key={item.href}>
                       <NavLink item={item} onClick={close} className="mobile-menu__link" />
                     </li>
                   ))}
+                  
+                  {/* Language switcher option for mobile view */}
+                  <li style={{ paddingInline: '1.5rem', marginTop: '1.5rem', display: 'flex', gap: '0.5rem', flexDirection: 'column' }}>
+                    <span style={{ fontSize: '0.8rem', fontWeight: '700', color: 'var(--text-muted)' }}>
+                      {lang === 'ar' ? 'اختر اللغة' : lang === 'bn' ? 'ভাষা নির্বাচন করুন' : 'Select Language'}
+                    </span>
+                    <LanguageSwitcher currentLang={lang} />
+                  </li>
                 </ul>
-                <Link href="/donate" className="btn btn--primary mobile-menu__cta" onClick={close}>
-                  Donate Now
+                <Link href={`/${lang}/donate`} className="btn btn--primary mobile-menu__cta" onClick={close}>
+                  {donateLabel}
                 </Link>
               </nav>
             </>,
             document.body,
           )
         : null}
-    </>
+      </>
   );
 }
-
-
-

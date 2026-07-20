@@ -2,11 +2,18 @@ import Link from 'next/link';
 import Container from '@/components/layout/Container';
 import SectionHeading from '@/components/ui/SectionHeading';
 import StoryCard from '@/components/cards/StoryCard';
-import { stories } from '@/data/stories';
+import { getStories } from '@/data/stories';
 import { IMAGES } from '../../lib/images';
+import { getDictionary, Locale } from '@/lib/dictionary';
 
-export default function StoriesPreview() {
-  const latest = stories.slice(0, 3);
+interface StoriesPreviewProps {
+  lang: Locale;
+}
+
+export default async function StoriesPreview({ lang }: StoriesPreviewProps) {
+  const dict = await getDictionary(lang);
+  const t = dict.home.stories;
+  const list = getStories(lang).slice(0, 3);
 
   return (
     <section 
@@ -15,19 +22,19 @@ export default function StoriesPreview() {
     >
       <Container>
         <SectionHeading
-          title="Stories of Hope"
-          subtitle="Behind every statistic is a real child with a real story. These are the faces of change."
+          title={t.title}
+          subtitle={t.subtitle}
         />
 
         <div className="stories-preview__grid">
-          {latest.map((story) => (
-            <StoryCard key={story.id} story={story} />
+          {list.map((story) => (
+            <StoryCard key={story.id} story={story} lang={lang} />
           ))}
         </div>
 
         <div className="stories-preview__cta">
-          <Link href="/stories" className="btn btn--outline btn--lg">
-            Read All Stories →
+          <Link href={`/${lang}/stories`} className="btn btn--outline btn--lg">
+            {t.cta}
           </Link>
         </div>
       </Container>
